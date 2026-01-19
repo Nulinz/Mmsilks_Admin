@@ -33,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
       if (response.statusCode == 200) {
         final jsonData = json.decode(response.body);
         print(jsonData['version']);
-        if (jsonData['version'] != '0.0.1') {
+        if (jsonData['version'] != '0.0.2') {
           print("version not updated");
           Get.offAll(() => const Updatepopup());
         } else {
