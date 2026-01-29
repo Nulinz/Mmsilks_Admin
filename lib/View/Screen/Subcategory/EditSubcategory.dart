@@ -315,36 +315,38 @@ class _EditSubCategoryState extends State<EditSubCategory> {
                       const SizedBox(height: 16),
 
                       /// UPDATE BUTTON
-                      SizedBox(
-                        width: double.infinity,
-                        height: 48,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.green,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
+                      SafeArea(
+                        child: SizedBox(
+                          width: double.infinity,
+                          height: 48,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.green,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
                             ),
-                          ),
-                          onPressed: controller.isLoading.value
-                              ? null
-                              : () {
-                                  if (_formKey.currentState!.validate()) {
-                                    controller.updateSubCategory();
-                                  }
-                                },
-                          child: controller.isLoading.value
-                              ? SpinKitThreeBounce(
-                                  size: 10.r,
-                                  color: whiteColor,
-                                )
-                              : const Text(
-                                  "Update",
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600,
+                            onPressed: controller.isLoading.value
+                                ? null
+                                : () {
+                                    if (_formKey.currentState!.validate()) {
+                                      controller.updateSubCategory();
+                                    }
+                                  },
+                            child: controller.isLoading.value
+                                ? SpinKitThreeBounce(
+                                    size: 10.r,
                                     color: whiteColor,
+                                  )
+                                : const Text(
+                                    "Update",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: whiteColor,
+                                    ),
                                   ),
-                                ),
+                          ),
                         ),
                       ),
                     ],

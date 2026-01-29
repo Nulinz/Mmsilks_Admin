@@ -47,7 +47,10 @@ class EditItemsScreen extends StatelessWidget {
                 hintText: "-- Choose a Subcategory --",
                 validatorText: "Select Subcategory",
                 items: controller.subCategories
-                    .map((e) => e['sc_name'] as String)
+                    .where((e) =>
+                        e['sc_name'] != null &&
+                        e['sc_name'].toString().isNotEmpty)
+                    .map((e) => e['sc_name'].toString())
                     .toList(),
                 initialValue: controller.subCategory.value,
                 onSelectionChanged: (val) => controller.subCategory.value = val,
@@ -61,7 +64,10 @@ class EditItemsScreen extends StatelessWidget {
                 hintText: "-- Choose a Color --",
                 validatorText: "Select Color",
                 items: controller.colors
-                    .map((e) => e['co_name'] as String)
+                    .where((e) =>
+                        e['co_name'] != null &&
+                        e['co_name'].toString().isNotEmpty)
+                    .map((e) => e['co_name'].toString())
                     .toList(),
                 initialValue: controller.selectedColor.value,
                 onSelectionChanged: (val) =>

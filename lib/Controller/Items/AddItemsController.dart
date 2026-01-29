@@ -146,7 +146,7 @@ class AddItemsController extends GetxController {
             if (Get.isRegistered<ItemController>()) {
               await Get.find<ItemController>().fetchItems();
             }
-            Get.back();
+            // Get.back();
             CustomSnackbar("Success", message);
             clearForm();
           }
